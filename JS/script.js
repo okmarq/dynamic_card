@@ -85,9 +85,9 @@ $(function() {
     }
   });
   
-  $("#company_name_input").change(function () {
-    let company_name = $("#company_name_input").val();
-    $("#company_name_front").html(company_name);
+  $("#company_name_input").keyup(function () {
+    let company_name = $(this).val();
+    $("#company_name_front").text(company_name);
   });
 
   $("button").click(function (event) {
