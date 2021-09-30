@@ -85,13 +85,14 @@ $(function() {
     }
   });
   
+  $("#company_name_input").change(function () {
+    let company_name = $("#company_name_input").val();
+    $("#company_name_front").html(company_name);
+  });
+
   $("button").click(function (event) {
     event.preventDefault();
-    let qr_position = $("#qr_position").val(),
-    qr_yes = $("#qr_yes").val(),
-    qr_no = $("#qr_no").val(),
-    logo = $("#logo_input").val(),
-    company_name = $("#company_name_input").val(),
+    let logo = $("#logo_input").val(),
     tagline = $("#tagline_input").val(),
     websitename = $("#websitename_input").val(),
     card_holder_name = $("#holder_name_input").val(),
