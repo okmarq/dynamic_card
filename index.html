@@ -4,128 +4,138 @@
   <!-- ... -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="css/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-  <main class="bg-gray-700 p-4">
-    <div class="flex justify-center items-center gap-4">
+  <header class="bg-indigo-600 h-16 w-full flex justify-center items-center shadow-md">
+    <h1 class="font-black text-xl">Dynamic Prints</h1>
+  </header>
+  <main class="bg-gray-300 p-4">
+    <p class="font-semibold text-lg">Design and customize your business cards</p>
+    <div id="" class="">
+      <form action="" method="post" id="card_form">
+        <div class="flex">
+          <fieldset class="flex-1">
+            <legend>Edges</legend>
+            <label for="sharp">Sharp</label>
+            <input type="radio" name="edges" id="sharp" value="sharp" checked>
+            <label for="round">Round</label>
+            <input type="radio" name="edges" id="round" value="round">
+          </fieldset>
+
+          <fieldset class="flex-1">
+            <legend>Design</legend>
+            <div class="flex flex-col gap-2">
+              <div id="design" class="">
+                <label for="pattern">Pattern</label>
+                <select name="pattern" id="pattern">
+                  <option value="plain" selected>Plain</option>
+                </select>
+              </div>
+              <div id="color_select" class="">
+                <sp>Card color</p>
+                <label for="front_color">Front</label>
+                <input type="color" name="front_color" id="front_color">
+                <label for="back_color">Back</label>
+                <input type="color" name="back_color" id="back_color">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="flex-1">
+            <legend>QR code</legend>
+            <label for="qr_no">No</label>
+            <input type="radio" name="qrcode" id="qr_no" value="qr_no" checked>
+            <label for="qr_yes">Yes</label>
+            <input type="radio" name="qrcode" id="qr_yes" value="qr_yes">
+
+            <div id="qr_position" class="hidden">
+              <label for="qr_top">Top</label>
+              <input type="radio" name="qrpos" id="qr_top" value="qr_top">
+              <label for="qr_center">Center</label>
+              <input type="radio" name="qrpos" id="qr_center" value="qr_center">
+              <label for="qr_bottom">Bottom</label>
+              <input type="radio" name="qrpos" id="qr_bottom" value="qr_bottom" checked>
+              <!-- <label for="qr_right">Right</label>
+              <input type="radio" name="qrpos" id="qr_right" value="qr_right">
+              <label for="qr_left">Left</label>
+              <input type="radio" name="qrpos" id="qr_left" value="qr_left"> -->
+            </div>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <legend>Card information</legend>
+          <div class="flex-1">
+            <label for="logo_input">Logo</label>
+            <input type="file" name="logo" id="logo_input" class="">
+          </div>
+          <div class="flex flex-wrap gap-2 my-4">
+            <div class="flex-1">
+              <input type="text" name="companyname" id="company_name_input" placeholder="Company name" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="text" name="tagline" id="tagline_input" placeholder="Tag line" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="url" name="websitename" id="websitename_input" placeholder="Website url" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="text" name="holdername" id="holder_name_input" placeholder="Name" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="text" name="position" id="position_input" placeholder="Position" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="text" name="description" id="description_input" placeholder="Description" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="text" name="address" id="address_input" placeholder="Address" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="email" name="email" id="email_input" placeholder="Email" class="px-2 rounded">
+            </div>
+            <div class="flex-1">
+              <input type="tel" name="tel" id="tel_input" placeholder="Phone" class="px-2 rounded">
+            </div>
+          </div>
+        </fieldset>
+
+        <button class="px-2 py-1 bg-green-300 rounded-lg hidden" type="submit">Save</button>
+      </form>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-2">
       <div class="">
         <h2>Front</h2>
-        <div id="front" class="grid place-items-center w-80 h-48 border shadow relative">
-          <div class="flex flex-col items-center space-y-1">
-            <div class="w-12 h-12 border"></div>
-            <div class="w-20 h-4 border"></div>
-            <div class="w-4 h-2 border"></div>
+        <div id="front" class="grid place-items-center w-80 h-48 border border-black shadow relative">
+          <div id="" class="flex flex-col items-center space-y-1">
+            <div id="logo" class="w-12 h-12 border border-black"></div>
+            <div id="" class="w-20 h-4 border border-black"></div>
+            <div id="" class="w-4 h-2 border border-black"></div>
           </div>
-          <div class="absolute bottom-0 w-10 h-2 border mb-4"></div>
+          <div class="absolute bottom-0 w-10 h-2 border border-black mb-4"></div>
         </div>
       </div>
 
       <div class="">
         <h2>Back</h2>
-        <div id="back" class="w-80 h-48 border shadow flex justify-between pt-8 pb-4 px-6">
-          <div class="flex flex-col justify-between">
-            <div class="space-y-1">
-              <div class="w-16 h-4 border"></div>
-              <div class="w-10 h-2 border"></div>
+        <div id="back" class="w-80 h-48 border border-black shadow flex justify-between pt-8 pb-4 px-6">
+          <div id="" class="flex flex-col justify-between">
+            <div id="" class="space-y-1">
+              <div id="" class="w-16 h-4 border border-black"></div>
+              <div id="" class="w-10 h-2 border border-black"></div>
             </div>
 
-            <div class="space-y-1">
-              <div class="w-10 h-2 border"></div>
-              <div class="w-10 h-2 border"></div>
-              <div class="w-10 h-2 border"></div>
+            <div id="" class="space-y-1">
+              <div id="" class="w-10 h-2 border border-black"></div>
+              <div id="" class="w-10 h-2 border border-black"></div>
+              <div id="" class="w-10 h-2 border border-black"></div>
             </div>
           </div>
-          <div class="self-end w-12 h-12 border"></div>
+          <div id="qr_code" class="self-end w-12 h-12 border border-black hidden"></div>
         </div>
       </div>
-    </div>
-
-    <div>
-      <form action="" method="post" id="card_form">
-        <fieldset disabled="disabled">
-          <legend>Design</legend>
-          <div id="" class="">
-            <label for=""></label>
-            <input type="radio" name="" id="">
-          </div>
-          <div id="" class="">
-            <label for=""></label>
-            <input type="color" name="" id="">
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>edges</legend>
-          <label for="sharp">Sharp</label>
-          <input type="radio" name="edges" id="sharp" value="sharp">
-
-          <label for="round">Round</label>
-          <input type="radio" name="edges" id="round" value="round">
-        </fieldset>
-
-        <fieldset>
-          <legend>QR code</legend>
-          <label for="yes">Yes</label>
-          <input type="radio" name="qr_code" id="yes" value="yes">
-          <label for="no">No</label>
-          <input type="radio" name="qr_code" id="no" value="no">
-          <div id="qr_position" class="hidden">
-            <label for="left">Left</label>
-            <input type="radio" name="qr_code" id="left" value="left">
-            <label for="right">Right</label>
-            <input type="radio" name="qr_code" id="right" value="right">
-          </div>
-        </fieldset>
-
-        <fieldset disabled="disabled">
-          <legend>Input details</legend>
-          <div class="space-y-1">
-            <div class="">
-              <label for="logo">Logo</label>
-              <input type="file" name="logo" id="logo">
-            </div>
-            <div class="">
-              <label for="company_name">Company name</label>
-              <input type="text" name="company_name" id="company_name">
-            </div>
-            <div class="">
-              <label for="tagline">Tagline</label>
-              <input type="text" name="tagline" id="tagline">
-            </div>
-            <div class="">
-              <label for="websitename">Website Url</label>
-              <input type="url" name="websitename" id="websitename">
-            </div>
-            <div class="">
-              <label for="holder_name">Name</label>
-              <input type="text" name="holder_name" id="holder_name">
-            </div>
-            <div class="">
-              <label for="position">Position</label>
-              <input type="text" name="position" id="position">
-            </div>
-            <div class="">
-              <label for="description">Description</label>
-              <input type="text" name="description" id="description">
-            </div>
-            <div class="">
-              <label for="address">Address</label>
-              <input type="text" name="address" id="address">
-            </div>
-            <div class="">
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email">
-            </div>
-            <div class="">
-              <label for="tel">Phone</label>
-              <input type="tel" name="tel" id="tel">
-            </div>
-          </div>
-        </fieldset>
-
-        <button class="px-2 my-4 py-1 bg-green-300 rounded-lg" type="submit">Save</button>
-      </form>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
