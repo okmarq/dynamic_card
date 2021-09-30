@@ -32,7 +32,12 @@
                 </select>
               </div>
               <div id="color_select" class="">
-                <sp>Card color</p>
+                <p>Background color</p>
+                <label for="front_bg_color">Front</label>
+                <input type="color" name="front_bg_color" id="front_bg_color">
+                <label for="back_bg_color">Back</label>
+                <input type="color" name="back_bg_color" id="back_bg_color">
+                <p>Foreground color</p>
                 <label for="front_color">Front</label>
                 <input type="color" name="front_color" id="front_color">
                 <label for="back_color">Back</label>
@@ -71,7 +76,7 @@
           </div>
           <div class="flex flex-wrap gap-2 my-4">
             <div class="flex-1">
-              <textarea name="companyname" id="company_name_input" cols="20" rows="2" class="px-2 rounded">Company name</textarea>
+              <input type="text" name="companyname" id="company_name_input" placeholder="Company name" class="px-2 rounded">
             </div>
             <div class="flex-1">
               <input type="text" name="tagline" id="tagline_input" placeholder="Tag line" class="px-2 rounded">
@@ -99,45 +104,64 @@
             </div>
           </div>
         </fieldset>
-
-        <button class="px-2 py-1 bg-green-300 rounded-lg hidden" type="submit">Save</button>
       </form>
     </div>
 
-    <div class="flex flex-wrap justify-center items-center gap-2">
+    <div class="flex flex-wrap justify-center items-center gap-2 my-4">
       <div class="">
         <h2>Front</h2>
-        <div id="front" class="grid place-items-center w-80 h-48 border border-black shadow relative">
-          <div id="" class="flex flex-col items-center space-y-1">
-            <div id="logo" class="w-12 h-12 border border-black"></div>
-            <div id="company_name_front" class="w-20 h-4 border border-black font-semibold text-lg"></div>
-            <div id="" class="w-4 h-2 border border-black"></div>
+        <div id="front" class="grid place-items-center w-80 h-48 border border-black shadow relative text-xs text-center">
+          <div id="" class="flex flex-col items-center">
+            <div id="logo_front" class="border border-black">
+              <img id="logo_img" src="#" alt="logo" class="object-contain object-center max-h-20 max-w-20 py-1">
+            </div>
+            <div id="company_name_front" class="w-full px-8 border border-black font-semibold text-lg leading-4"></div>
+            <div id="tagline_front" class="w-full px-8 border border-black leading-4"></div>
           </div>
-          <div class="absolute bottom-0 w-10 h-2 border border-black mb-4"></div>
+          <div id="websitename_front" class="absolute bottom-0 w-full px-8 border border-black mb-1 leading-4"></div>
         </div>
       </div>
 
       <div class="">
         <h2>Back</h2>
-        <div id="back" class="w-80 h-48 border border-black shadow flex justify-between pt-8 pb-4 px-6">
+        <div id="back" class="w-80 h-48 border border-black shadow flex justify-between pt-8 pb-4 px-6 text-xs">
           <div id="" class="flex flex-col justify-between">
             <div id="" class="space-y-1">
-              <div id="" class="w-16 h-4 border border-black"></div>
-              <div id="" class="w-10 h-2 border border-black"></div>
+              <div id="holder_name_back" class="w-full border border-black text-lg font-bold leading-4"></div>
+              <div id="position_back" class="w-full border border-black font-semibold leading-4"></div>
             </div>
 
-            <div id="" class="space-y-1">
-              <div id="" class="w-10 h-2 border border-black"></div>
-              <div id="" class="w-10 h-2 border border-black"></div>
-              <div id="" class="w-10 h-2 border border-black"></div>
+            <div id="" class="space-y-2">
+              <div class="flex items-center gap-2">
+                <img src="https://img.icons8.com/ios/16/000000/phone.png"/>
+                <span id="tel_back" class="w-full border border-black leading-4"></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <img src="https://img.icons8.com/ios/16/000000/new-post.png"/>
+                <span id="email_back" class="w-full border border-black leading-4"></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <img src="https://img.icons8.com/ios/16/000000/visit.png"/>
+                <span id="address_back" class="w-full border border-black leading-4"></span>
+              </div>
+              <div class="flex items-center gap-2 hidden">
+                <img src="https://img.icons8.com/ios/16/000000/internet.png"/>
+                <span id="address_back" class="w-full border border-black leading-4"></span>
+              </div>
             </div>
           </div>
-          <div id="qr_code" class="self-end w-12 h-12 border border-black hidden"></div>
+          <div id="qr_code" class="self-end w-16 h-16 border border-black hidden flex items-center justify-center p-1"></div>
         </div>
       </div>
     </div>
+
+      <button id="generateQRCode" class="px-2 py-1 bg-green-300 rounded-lg">Create Qr Code</button>
+
+      <button class="px-2 py-1 bg-green-300 rounded-lg">Download</button>
   </main>
-  <script src="./js/jquery-3.6.0.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" integrity="sha512-pUhApVQtLbnpLtJn6DuzDD5o2xtmLJnJ7oBoMsBnzOkVkpqofGLGPaBJ6ayD2zQe3lCgCibhJBi4cj5wAxwVKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
